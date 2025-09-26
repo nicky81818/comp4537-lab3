@@ -20,7 +20,10 @@ function handleRequest(req, res) {
     res.end(`<span style="color: blue;">${utils.getMessage(q.query.name)} ${utils.getFullDate()}</span>`);
   } else if (q.pathname === "/writeFile/") {
     fs.appendFile("file.txt", q.query.text + "\n", (err) => {
-      if (err) throw err;
+      if (err) {
+        console.error(err);
+        return;
+      }
       console.log("The file has been saved!");
     });
     res.writeHead(200, {
