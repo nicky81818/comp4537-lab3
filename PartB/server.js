@@ -30,12 +30,12 @@ function handleRequest(req, res) {
         return;
       }
       console.log("The file has been saved!");
+      res.writeHead(200, {
+        "Content-Type": "text/json",
+        "Access-Control-Allow-Origin": "*",
+      });
+      res.end(`{"message": ${message.SUCCESS}}`);
     });
-    res.writeHead(200, {
-      "Content-Type": "text/json",
-      "Access-Control-Allow-Origin": "*",
-    });
-    res.end(`{"message": ${message.SUCCESS}}`);
   } else if (q.pathname.includes("/readFile/")) {
     let filename = q.pathname.split("/")[2];
     fs.readFile(filename, "utf8", (err, data) => {
