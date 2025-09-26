@@ -44,7 +44,7 @@ function handleRequest(req, res) {
           "Content-Type": "text/json",
           "Access-Control-Allow-Origin": "*",
         });
-        res.end(`{"message": ${message.FILE_NOT_FOUND}}`);
+        res.end(`{"message": ${message.FILE_NOT_FOUND + filename}}`);
         return console.log(err);
       }
 
