@@ -3,8 +3,12 @@ const url = require("url")
 const fs = require("fs")
 const utils = require("./modules/utils")
 const message = require("./lang/en/en.json")
+const PORT = process.env.PORT || 8080;
+const HOST = "0.0.0.0"; 
 
-http.createServer(handleRequest).listen(8080);
+http.createServer(handleRequest).listen(PORT, HOST, () => {
+  console.log(`Server is running on http://${HOST}:${PORT}`);
+});
 
 function handleRequest(req, res) {
   let q = url.parse(req.url, true);
@@ -45,5 +49,3 @@ function handleRequest(req, res) {
   }
 
 }
-
-console.log("Server is running and listening!")
