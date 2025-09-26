@@ -1,0 +1,6 @@
+{
+  "MESSAGE_1": "Hello",
+  "MESSAGE_2": ", What a beautiful day. Server current date and time is",
+  "SUCCESS": "File written successfully",
+  "FILE_NOT_FOUND": "File not found"
+}
